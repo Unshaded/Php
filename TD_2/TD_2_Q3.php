@@ -14,8 +14,11 @@
       $res=$Operande1-$Operande2;
     if($Operation == 'Multiplication')
       $res=$Operande1*$Operande2;
-    if($Operation == 'Division')
+    if($Operation == 'Division'){
+      if($Operande2 > 0)
       $res=$Operande1/$Operande2;
+     
+    }
   }
 
   
@@ -41,9 +44,11 @@
         </select>
         <input type="text" name="Operande2">
         <?php
-    if(isset($res))
-     echo " = ".$res;
-    ?>
+          if(isset($res))
+           echo " = ".$res;
+         if($Operande2 == 0)
+          echo "Division par 0 !";
+       ?>
       </fieldset>
       <input type="submit" name="Calculer">
     </form>
